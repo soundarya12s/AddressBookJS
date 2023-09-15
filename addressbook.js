@@ -20,6 +20,21 @@ class AddressBook {
     this.contacts.push(contact);
     console.log("Contact Added " + contact.FirstName);}
 
+    EditContact(contact) {
+        validate(contact);
+        this.contacts.forEach(element => {
+            if (contact.FirstName == element.FirstName) {
+                element.LastName = contact.LastName;
+                element.Address = contact.Address;
+                element.City = contact.City;
+                element.State = contact.State;
+                element.Zip = contact.Zip;
+                element.PhoneNumber = contact.PhoneNumber;
+                element.Email = contact.Email;
+                console.log("Edited Address Book Successfully");
+            }
+        });}
+
     displayContactDetails() {
     this.contacts.forEach(element => {
         console.log("Full Name: "+element.FirstName + " " + element.LastName);
@@ -31,19 +46,19 @@ class AddressBook {
 const addressbook=new AddressBook();
 const Contact1 = new Contact(
     FirstName= "Soundarya",
-    LastName= "S",
+    LastName= "Sathya",
     Address= "Guindy",
     City= "Chennai",
-    State= "TN",
+    State= "TamilNadu",
     Zip ="689642",
     PhoneNumber= "1234567890",
     Email= "soundarya@gmail.com");
 const Contact2 = new Contact(
     FirstName="Swetha",
-    LastName= "S",
+    LastName= "Sarathy",
     Address= "Adyar",
     City= "Chennai",
-    State= "TN",
+    State= "TamilNadu",
     Zip= "123456",
     PhoneNumber= "1023445678",
     Email= "swetha@gmail.com");
@@ -88,10 +103,21 @@ const Contact3 = new Contact(
     LastName = "Mathi",
     Address = "Anna Nagar",
     City = "Chennai",
-    State = "TN",
+    State = "TamilNadu",
     Zip = "123456",
     PhoneNumber = "1023445678",
     Email = "Shri@gmail.com");
-validate(Contact3);
+    addressbook.addNewContact(Contact3);
+
+    const UpdateContact = new Contact(
+        FirstName = "Reya",
+        LastName = "Raj",
+        Address = "Pammal",
+        City = "Chennai",
+        State = "TamilNadu",
+        Zip = "987654",
+        PhoneNumber = "1123445678",
+        Email = "Reya@gmail.com");
+addressbook.EditContact(UpdateContact)
 
 addressbook.displayContactDetails();
