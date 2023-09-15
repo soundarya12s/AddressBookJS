@@ -84,6 +84,18 @@ class AddressBook {
             })
         }
 
+        SortName() {
+            this.contacts.sort((a, b) => {
+                let n1 = a.FirstName;
+                let n2 = b.FirstName;
+                if (n1 < n2)
+                    return -1;
+                else
+                    return 1;
+            });
+            this.displayContactDetails();
+        }
+
     displayContactDetails() {
     this.contacts.forEach(element => {
         console.log("Full Name: "+element.FirstName + " " + element.LastName);
@@ -159,10 +171,4 @@ const Contact3 = new Contact(
     addressbook.addNewContact(Contact3);
 
   
-
-
-
-
-
-addressbook.CountCity("Guindy");
-addressbook.CountState("TamilNadu");
+    addressbook.SortName();
