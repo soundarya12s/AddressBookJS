@@ -45,6 +45,14 @@ class AddressBook {
             });
         }
 
+        duplicateContact(contact) {
+            if (this.contacts.some((element) => element.FirstName == contact.FirstName)) {
+                console.log("Contact already Exists");
+            }
+            else {
+                this.addNewContact(contact)
+            }
+        }
 
         CountContact() {
             const count = this.contacts.reduce((count, sum) => {
@@ -132,3 +140,4 @@ const Contact3 = new Contact(
 addressbook.DeleteContact("Reya");
 addressbook.CountContact();
 addressbook.displayContactDetails();
+addressbook.duplicateContact(Contact3);
