@@ -47,7 +47,38 @@ const Contact2 = new Contact(
     Zip= "123456",
     PhoneNumber= "1023445678",
     Email= "swetha@gmail.com");
-
-addressbook.addNewContact(Contact1);
-addressbook.addNewContact(Contact2);
-addressbook.displayContactDetails();
+    function validateName(Details) {
+        console.log(Details.FirstName + " " + Details.LastName + " " + Details.Address + " " + Details.City 
+        + " " + Details.State + " " + Details.Zip + " " + Details.PhoneNumber + " " + Details.Email);
+        if (!/^[A-Z][a-zA-Z]{2,}$/.test(Details.FirstName)) {
+            throw new Error("Invalid First Name");
+        }
+        else if (!/^[A-Z][a-zA-Z]{2,}$/.test(Details.LastName)) {
+            throw new Error("Invalid Last Name");
+        }
+        else if (!/^[0-9a-zA-Z]{4,}$/.test(Details.Address)) {
+            throw new Error("Invalid Address");
+        }
+        else if (!/^[a-zA-Z]{4,}$/.test(Details.City)) {
+            throw new Error("Invalid City");
+        }
+        else if (!/^[0-9a-zA-Z]{4,}$/.test(Details.State)) {
+            throw new Error("Invalid State");
+        }
+        else if (!/^[0-9]{6}$/.test(Details.Zip)) {
+            throw new Error("Invalid Zip");
+        }
+        else if (!/^[0-9]{10}$/.test(Details.PhoneNumber)) {
+            throw new Error("Invalid Phone Number");
+        }
+        else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(Details.Email)) {
+            throw new error("Invalid Email")
+        }
+        else {
+            addressbook.addNewContact(Details);
+        }
+    }
+    
+    validateName(Contact1);
+    validateName(Contact2)
+    addressbook.displayContactDetails();
