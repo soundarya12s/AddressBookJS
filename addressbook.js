@@ -45,6 +45,14 @@ class AddressBook {
             });
         }
 
+
+        CountContact() {
+            const count = this.contacts.reduce((count, sum) => {
+                return count + 1
+            }, 0);
+            console.log("Total number of contacts in the Addressbook: " + count);
+        }
+
     displayContactDetails() {
     this.contacts.forEach(element => {
         console.log("Full Name: "+element.FirstName + " " + element.LastName);
@@ -122,5 +130,5 @@ const Contact3 = new Contact(
   
 
 addressbook.DeleteContact("Reya");
-
+addressbook.CountContact();
 addressbook.displayContactDetails();
