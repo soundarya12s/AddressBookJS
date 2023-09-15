@@ -35,6 +35,16 @@ class AddressBook {
             }
         });}
 
+
+        DeleteContact(name) {
+            this.contacts.forEach(element => {
+                if (name == element.FirstName) {
+                    this.contacts.pop(element);
+                    console.log(name + " deleted Successfully");
+                }
+            });
+        }
+
     displayContactDetails() {
     this.contacts.forEach(element => {
         console.log("Full Name: "+element.FirstName + " " + element.LastName);
@@ -109,15 +119,8 @@ const Contact3 = new Contact(
     Email = "Shri@gmail.com");
     addressbook.addNewContact(Contact3);
 
-    const UpdateContact = new Contact(
-        FirstName = "Reya",
-        LastName = "Raj",
-        Address = "Pammal",
-        City = "Chennai",
-        State = "TamilNadu",
-        Zip = "987654",
-        PhoneNumber = "1123445678",
-        Email = "Reya@gmail.com");
-addressbook.EditContact(UpdateContact)
+  
+
+addressbook.DeleteContact("Reya");
 
 addressbook.displayContactDetails();
