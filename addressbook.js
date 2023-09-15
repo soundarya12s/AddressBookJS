@@ -42,30 +42,21 @@ class AddressBook {
                 console.log("Full Name: " + element.FirstName + " " + element.LastName);
             })
         }
-        State(state) {
-            const stateSearch = this.contacts.filter((element) => element.State == state);
-            console.log("The persons in the state " + state + " are: ");
-            stateSearch.forEach(element => {
+        City(city, name) {
+            const citySearch = this.contacts.filter((element) => element.City == city);
+            const personCity = citySearch.filter((element) => element.FirstName == name);
+            console.log("The particular person in the city " + city + " is: ");
+            personCity.forEach(element => {
                 console.log("Full Name: " + element.FirstName + " " + element.LastName);
             })
         }
-
-        DeleteContact(name) {
-            this.contacts.forEach(element => {
-                if (name == element.FirstName) {
-                    this.contacts.pop(element);
-                    console.log(name + " deleted Successfully");
-                }
-            });
-        }
-
-        duplicateContact(contact) {
-            if (this.contacts.some((element) => element.FirstName == contact.FirstName)) {
-                console.log("Contact already Exists");
-            }
-            else {
-                this.addNewContact(contact)
-            }
+        State(state, name) {
+            const stateSearch = this.contacts.filter((element) => element.State == state);
+            const personState = stateSearch.filter((element) => element.FirstName == name);
+            console.log("The particular person in the state " + state + " is: ");
+            personState.forEach(element => {
+                console.log("Full Name: " + element.FirstName + " " + element.LastName);
+            })
         }
 
         CountContact() {
@@ -73,6 +64,24 @@ class AddressBook {
                 return count + 1
             }, 0);
             console.log("Total number of contacts in the Addressbook: " + count);
+        }
+
+       
+        City(city, name) {
+            this.citySearch = this.contacts.filter((element) => element.City == city);
+            const personCity = this.citySearch.filter((element) => element.FirstName == name);
+            console.log("The persons in the city " + city + " are: ");
+            personCity.forEach(element => {
+                console.log("Full Name: " + element.FirstName + " " + element.LastName);
+            })
+        }
+        State(state, name) {
+            this.stateSearch = this.contacts.filter((element) => element.State == state);
+            const personState = this.stateSearch.filter((element) => element.FirstName == name);
+            console.log("The persons in the state " + state + " are: ");
+            personState.forEach(element => {
+                console.log("Full Name: " + element.FirstName + " " + element.LastName);
+            })
         }
 
     displayContactDetails() {
@@ -153,5 +162,7 @@ const Contact3 = new Contact(
 
 
 
-addressbook.City("Anna Nagar");
-addressbook.State("Mumbai");
+
+
+addressbook.CountCity("Guindy");
+addressbook.CountState("TamilNadu");
