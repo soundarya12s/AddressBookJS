@@ -35,6 +35,20 @@ class AddressBook {
             }
         });}
 
+        City(city) {
+            const citySearch = this.contacts.filter((element) => element.City == city);
+            console.log("The persons in the city " + city + " are: ");
+            citySearch.forEach(element => {
+                console.log("Full Name: " + element.FirstName + " " + element.LastName);
+            })
+        }
+        State(state) {
+            const stateSearch = this.contacts.filter((element) => element.State == state);
+            console.log("The persons in the state " + state + " are: ");
+            stateSearch.forEach(element => {
+                console.log("Full Name: " + element.FirstName + " " + element.LastName);
+            })
+        }
 
         DeleteContact(name) {
             this.contacts.forEach(element => {
@@ -83,7 +97,7 @@ const Contact2 = new Contact(
     FirstName="Swetha",
     LastName= "Sarathy",
     Address= "Adyar",
-    City= "Chennai",
+    City= "Mumbai",
     State= "TamilNadu",
     Zip= "123456",
     PhoneNumber= "1023445678",
@@ -137,7 +151,7 @@ const Contact3 = new Contact(
 
   
 
-addressbook.DeleteContact("Reya");
-addressbook.CountContact();
-addressbook.displayContactDetails();
-addressbook.duplicateContact(Contact3);
+
+
+addressbook.City("Anna Nagar");
+addressbook.State("Mumbai");
